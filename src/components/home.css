@@ -1,0 +1,16 @@
+.btn-home {
+  color: white;
+}
+
+.btn-home:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.user {
+  color: white;
+}
+
+.user:hover {
+  color: white;
+}

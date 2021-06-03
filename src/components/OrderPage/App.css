@@ -1,0 +1,36 @@
+.card-play {
+  background: #ffffff;
+  border: 1px solid #dfe1e6;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.selectgroup-button {
+  font-size: 18px;
+  color: #444444;
+}
+
+.icon-r {
+  padding-right: 8px;
+}
+.p-10 {
+  padding: 10px 15px;
+}
+
+.mr {
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+.mt {
+  margin-top: 20px;
+}
+.mr-seat-info {
+  margin-left: 12px;
+  top: 4px;
+  position: absolute;
+}
+
+.mb {
+  margin-bottom: 20px;
+}

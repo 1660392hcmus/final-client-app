@@ -1,0 +1,18 @@
+.card {
+  width: 100%;
+  height: fit-content;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.btn-order {
+  color: white;
+}
+
+.btn-order:hover {
+  text-decoration: none;
+  color: yellow;
+}
