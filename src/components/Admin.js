@@ -13,7 +13,7 @@ export default class Admin extends Component {
   };
 
   componentDidMount() {
-    fetch(`${apiLocalhost}/user/get/all/movie`)
+    fetch(`${apiLocalhost}/user/get/all/movie`, { mode: "no-cors"})
       .then(data => data.json())
       .then(result => {
         console.log(result);
