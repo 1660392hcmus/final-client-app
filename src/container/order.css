@@ -13,6 +13,11 @@ label {
   color: #444444;
 }
 
+.selectgroup-button {
+  font-size: 18px;
+  color:#ffffff;
+}
+
 .icon-r {
   padding-right: 8px;
 }
@@ -31,6 +36,7 @@ label {
   margin-left: 12px;
   top: 4px;
   position: absolute;
+  color: #ffffff;
 }
 
 .mb {

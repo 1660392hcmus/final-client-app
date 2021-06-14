@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import "./order.css";
-
+import './tabler.css';
+import { withStyles, Grid, Container } from '@material-ui/core';
+import { connect } from 'react-redux';
+// import styles from './styles';
+import {
+  showInvitationForm,
+} from '../store/actions';
 class Order extends Component {
   state = {
     showDay: null,
@@ -10,7 +16,6 @@ class Order extends Component {
     id_time: null,
     seated: null,
     seatWanted: [],
-
     movie: null
   };
 
@@ -138,8 +143,9 @@ class Order extends Component {
     })
       .then(res => res.json())
       .then(data => {
+        this.props.showInvitationForm();
         const id_order = data.order.map(value => value.id_order).join("-");
-        navigate(`/order/success/${id_order}`);
+        // navigate(`/order/success/${id_order}`);
       })
       .catch(err => console.log(err));
   };
@@ -342,5 +348,20 @@ class Order extends Component {
     );
   }
 }
+const mapStateToProps = (
+  {
+    checkoutState
+  },
+) => ({
+  showInvitation: checkoutState.showInvitation,
+});
 
-export default Order;
+const mapDispatchToProps = {
+  showInvitationForm
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Order);
+// export default Order;
