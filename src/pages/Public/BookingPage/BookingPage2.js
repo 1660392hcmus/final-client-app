@@ -193,8 +193,7 @@ class BookingPage extends Component {
   };
 
   handleOrder = e => {
-    if (window.PaymentRequest) {
-      let request = this.initPaymentRequest();
+    let request = this.initPaymentRequest();
       request
         .show()
         .then(result => {
@@ -204,9 +203,20 @@ class BookingPage extends Component {
         .catch(err => {
           console.log(err);
         });
-    } else {
-      console.log("This browser does not support web payments");
-    }
+    // if (window.PaymentRequest) {
+    //   let request = this.initPaymentRequest();
+    //   request
+    //     .show()
+    //     .then(result => {
+    //       this.sendOrder();
+    //       return result.complete("success");
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    // } else {
+    //   console.log("This browser does not support web payments");
+    // }
   };
 
   render() {
