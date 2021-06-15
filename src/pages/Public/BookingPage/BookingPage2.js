@@ -193,16 +193,7 @@ class BookingPage extends Component {
   };
 
   handleOrder = e => {
-    let request = this.initPaymentRequest();
-      request
-        .show()
-        .then(result => {
-          this.sendOrder();
-          return result.complete("success");
-        })
-        .catch(err => {
-          console.log(err);
-        });
+    this.sendOrder();
     // if (window.PaymentRequest) {
     //   let request = this.initPaymentRequest();
     //   request
