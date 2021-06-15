@@ -151,20 +151,30 @@ class Order extends Component {
   };
 
   handleOrder = e => {
-    if (window.PaymentRequest) {
-      let request = this.initPaymentRequest();
-      request
-        .show()
-        .then(result => {
-          this.sendOrder();
-          return result.complete("success");
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    } else {
-      console.log("This browser does not support web payments");
-    }
+    let request = this.initPaymentRequest();
+    request
+      .show()
+      .then(result => {
+        this.sendOrder();
+        return result.complete("success");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    // if (window.PaymentRequest) {
+    //   let request = this.initPaymentRequest();
+    //   request
+    //     .show()
+    //     .then(result => {
+    //       this.sendOrder();
+    //       return result.complete("success");
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    // } else {
+    //   console.log("This browser does not support web payments");
+    // }
   };
   render() {
     const seats = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
