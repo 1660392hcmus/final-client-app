@@ -20,10 +20,8 @@ class Register extends Component {
   state = {
     values: {
       name: '',
-      username: '',
       email: '',
-      phone: '',
-      password: '',
+      sdt: '',
       image: null,
       policy: false
     }
@@ -91,7 +89,7 @@ class Register extends Component {
                       }
                       variant="outlined"
                     />
-                    <TextField
+                    {/* <TextField
                       className={classes.textField}
                       label="User name"
                       name="username"
@@ -100,7 +98,7 @@ class Register extends Component {
                         this.handleFieldChange('username', event.target.value)
                       }
                       variant="outlined"
-                    />
+                    /> */}
                     <TextField
                       className={classes.textField}
                       label="Email address"
@@ -114,11 +112,11 @@ class Register extends Component {
                     <TextField
                       className={classes.textField}
                       label="Mobile Phone"
-                      name="phone"
+                      name="sdt"
                       value={values.phone}
                       variant="outlined"
                       onChange={event =>
-                        this.handleFieldChange('phone', event.target.value)
+                        this.handleFieldChange('sdt', event.target.value)
                       }
                     />
                     <TextField

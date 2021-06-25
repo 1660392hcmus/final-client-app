@@ -288,7 +288,7 @@ class BookingPage extends Component {
     const invitations = this.createInvitations();
     if (!invitations) return;
     try {
-      const token = localStorage.getItem('jwtToken');
+      const token = localStorage.getItem('token');
       const url = '/invitations';
       const response = await fetch(url, {
         method: 'POST',

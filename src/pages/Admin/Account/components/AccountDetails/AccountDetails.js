@@ -34,7 +34,7 @@ class Account extends Component {
   onUpdateUser = async () => {
     try {
       const { name, email, phone, password } = this.state;
-      const token = localStorage.getItem('jwtToken');
+      const token = localStorage.getItem('token');
       let body = { name, email, phone };
       if (password) body = { ...body, password };
       const url = '/users/me';

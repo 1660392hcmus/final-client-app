@@ -119,25 +119,23 @@ export const googleLogin = ({ profileObj }) => async dispatch => {
 // Register user
 export const register = ({
   name,
-  username,
   email,
-  phone,
-  image,
+  sdt,
   password
 }) => async dispatch => {
   try {
-    const url = '/users';
-    const body = { name, username, email, phone, password };
+    const url = 'http://3.21.232.6:8080/user/create/account';
+    const body = { name, email, sdt, password };
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
+    console.log("🚀 ~ file: auth.js ~ line 134 ~ response", response)
     const responseData = await response.json();
     if (response.ok) {
       const { user } = responseData;
       user && setUser(user);
-      if (image) dispatch(uploadImage(user._id, image)); // Upload image
       dispatch({ type: REGISTER_SUCCESS, payload: responseData });
       dispatch(setAlert('Register Success', 'success', 5000));
     }
@@ -175,7 +173,7 @@ export const loadUser = () => async dispatch => {
 // Logout
 export const logout = () => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '3.21.232.6:8080/logout';
     const response = await fetch(url, {
       method: 'GET',

@@ -3,7 +3,7 @@ import { setAlert } from './alert';
 
 export const getReservations = () => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = 'http://3.21.232.6:8080/user/get/order';
     const response = await fetch(url, {
       method: 'GET',
@@ -23,7 +23,7 @@ export const getReservations = () => async dispatch => {
 
 export const getSuggestedReservationSeats = username => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/reservations/usermodeling/' + username;
     const response = await fetch(url, {
       method: 'GET',
@@ -45,7 +45,7 @@ export const getSuggestedReservationSeats = username => async dispatch => {
 
 export const addReservation = reservation => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/reservations';
     const response = await fetch(url, {
       method: 'POST',
@@ -75,7 +75,7 @@ export const addReservation = reservation => async dispatch => {
 
 export const updateReservation = (reservation, id) => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/reservations/' + id;
     const response = await fetch(url, {
       method: 'PATCH',
@@ -100,7 +100,7 @@ export const updateReservation = (reservation, id) => async dispatch => {
 
 export const removeReservation = id => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/reservations/' + id;
     const response = await fetch(url, {
       method: 'DELETE',

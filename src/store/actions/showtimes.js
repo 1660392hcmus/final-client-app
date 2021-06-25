@@ -18,7 +18,7 @@ export const selectAllShowtimes = () => ({ type: SELECT_ALL_SHOWTIMES });
 
 export const getShowtimes = () => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/showtimes';
     const response = await fetch(url, {
       method: 'GET',
@@ -37,7 +37,7 @@ export const getShowtimes = () => async dispatch => {
 
 export const addShowtime = showtime => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/showtimes/';
     const response = await fetch(url, {
       method: 'POST',
@@ -62,7 +62,7 @@ export const addShowtime = showtime => async dispatch => {
 
 export const updateShowtime = (showtime, id) => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/showtimes/' + id;
     const response = await fetch(url, {
       method: 'PATCH',
@@ -87,7 +87,7 @@ export const updateShowtime = (showtime, id) => async dispatch => {
 
 export const deleteShowtime = id => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/showtimes/' + id;
     const response = await fetch(url, {
       method: 'DELETE',

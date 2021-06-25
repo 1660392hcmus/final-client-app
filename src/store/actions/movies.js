@@ -85,7 +85,7 @@ export const getMovieSuggestion = id => async dispatch => {
 
 export const addMovie = (image, newMovie) => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/movies';
     const response = await fetch(url, {
       method: 'POST',
@@ -108,7 +108,7 @@ export const addMovie = (image, newMovie) => async dispatch => {
 
 export const updateMovie = (movieId, movie, image) => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/movies/' + movieId;
     const response = await fetch(url, {
       method: 'PUT',
@@ -131,7 +131,7 @@ export const updateMovie = (movieId, movie, image) => async dispatch => {
 
 export const removeMovie = movieId => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/movies/' + movieId;
     const response = await fetch(url, {
       method: 'DELETE',

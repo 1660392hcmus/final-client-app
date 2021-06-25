@@ -56,7 +56,7 @@ export const getCinema = id => async dispatch => {
 
 export const createCinemas = (image, newCinema) => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/cinemas';
     const response = await fetch(url, {
       method: 'POST',
@@ -84,7 +84,7 @@ export const createCinemas = (image, newCinema) => async dispatch => {
 
 export const updateCinemas = (image, cinema, id) => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/cinemas/' + id;
     const response = await fetch(url, {
       method: 'PATCH',
@@ -110,7 +110,7 @@ export const updateCinemas = (image, cinema, id) => async dispatch => {
 
 export const removeCinemas = id => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/cinemas/' + id;
     const response = await fetch(url, {
       method: 'DELETE',

@@ -82,6 +82,7 @@ const Routes = () => {
             layout={PublicLayout}
             component={MyDashboard}
           />
+          
           {/* <Route exact path="/movie/order/:id" component={Order} /> */}
 
           {/* <WithLayoutRoute

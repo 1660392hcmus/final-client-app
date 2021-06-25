@@ -21,7 +21,7 @@ export const selectAllUsers = () => ({ type: SELECT_ALL_USERS });
 
 export const getUsers = () => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/users';
     const response = await fetch(url, {
       method: 'GET',
@@ -40,7 +40,7 @@ export const getUsers = () => async dispatch => {
 
 export const addUser = user => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/users/';
     const response = await fetch(url, {
       method: 'POST',
@@ -70,7 +70,7 @@ export const addUser = user => async dispatch => {
 
 export const updateUser = (user, id) => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/users/' + id;
     const response = await fetch(url, {
       method: 'PATCH',
@@ -100,7 +100,7 @@ export const updateUser = (user, id) => async dispatch => {
 
 export const deleteUser = id => async dispatch => {
   try {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('token');
     const url = '/users/' + id;
     const response = await fetch(url, {
       method: 'DELETE',
