@@ -4,7 +4,7 @@ import { setAlert } from './alert';
 export const getReservations = () => async dispatch => {
   try {
     const token = localStorage.getItem('token');
-    const url = 'http://3.21.232.6:8080/user/get/order';
+    const url = 'http://3.21.232.6:8080/admin/get/all/order';
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -14,7 +14,7 @@ export const getReservations = () => async dispatch => {
     });
     const reservations = await response.json();
     if (response.ok) {
-      dispatch({ type: GET_RESERVATIONS, payload: reservations });
+      dispatch({ type: GET_RESERVATIONS, payload: reservations.order });
     }
   } catch (error) {
     dispatch(setAlert(error.message, 'error', 5000));

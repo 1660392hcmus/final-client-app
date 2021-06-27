@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core';
 import { CircularProgress, Grid } from '@material-ui/core';
 import { MovieToolbar, MovieCard } from './components';
-import { ResponsiveDialog } from '../../../components';
+import ResponsiveDialog from '../../../components/ResponsiveDialog';
 import styles from './styles';
 import AddMovie from './components/AddMovie/AddMovie';
 import { getMovies, onSelectMovie } from '../../../store/actions';

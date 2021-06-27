@@ -16,6 +16,10 @@ import { AdminLayout, PublicLayout } from './layouts';
 // const User = lazy(() => import('./pages/Admin/User'));
 // const Account = lazy(() => import('./pages/Admin/Account'));
 
+// // Admin
+const DashboardPage = lazy(() => import('./pages/Admin/Dashboard'));
+const MovieList = lazy(() => import('./pages/Admin/MovieList'));
+
 // // Register - Login
 const Register = lazy(() => import('./pages/Public/Register'));
 const Login = lazy(() => import('./pages/Public/Login'));
@@ -81,6 +85,20 @@ const Routes = () => {
             path="/mydashboard"
             layout={PublicLayout}
             component={MyDashboard}
+          />
+
+          <ProtectedRoute
+            exact
+            path="/admin/dashboard"
+            layout={AdminLayout}
+            component={DashboardPage}
+          />
+          
+          <ProtectedRoute
+            exact
+            path="/admin/movies"
+            layout={AdminLayout}
+            component={MovieList}
           />
           
           {/* <Route exact path="/movie/order/:id" component={Order} /> */}

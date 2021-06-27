@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { AccessTime as AccessTimeIcon } from '@material-ui/icons';
-import { Paper } from '../../../../../components';
+import Paper from '../../../../../../src/components/Paper';
 
 const useStyles = makeStyles(theme => ({
   root: {

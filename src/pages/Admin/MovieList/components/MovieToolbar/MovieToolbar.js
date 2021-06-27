@@ -11,7 +11,8 @@ import { withStyles } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 
 // Shared components
-import { SearchInput, ResponsiveDialog } from '../../../../../components';
+import ResponsiveDialog from '../../../../../../src/components/ResponsiveDialog';
+import SearchInput from '../../../../../../src/components/SearchInput';
 
 // Component styles
 import styles from './styles';

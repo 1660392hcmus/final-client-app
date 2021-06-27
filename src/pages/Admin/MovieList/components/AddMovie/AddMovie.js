@@ -16,53 +16,45 @@ import {
   updateMovie,
   removeMovie
 } from '../../../../../store/actions';
-import FileUpload from '../../../../../components/FileUpload/FileUpload';
 
 class AddMovie extends Component {
   state = {
     title: '',
-    image: null,
-    genre: [],
-    language: '',
-    duration: '',
+    avatar: null,
+    length: '',
     description: '',
     director: '',
-    cast: '',
-    releaseDate: new Date(),
-    endDate: new Date()
+    released: '',
+    price: '',
   };
 
   componentDidMount() {
     if (this.props.edit) {
       const {
         title,
-        language,
-        genre,
         director,
-        cast,
         description,
-        duration,
-        releaseDate,
-        endDate
+        length,
+        released,
+        avatar,
+        price,
       } = this.props.edit;
       this.setState({
         title,
-        language,
-        genre: genre.split(','),
         director,
-        cast,
         description,
-        duration,
-        releaseDate,
-        endDate
+        length,
+        released,
+        avatar,
+        price,
       });
     }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.movie !== this.props.movie) {
-      const { title, genre, language } = this.props.movie;
-      this.setState({ title, genre, language });
+      const { title } = this.props.movie;
+      this.setState({ title });
     }
   }
 
@@ -79,9 +71,9 @@ class AddMovie extends Component {
   };
 
   onAddMovie = () => {
-    const { image, genre, ...rest } = this.state;
-    const movie = { ...rest, genre: genre.join(',') };
-    this.props.addMovie(image, movie);
+    const { ...rest } = this.state;
+    const movie = { ...rest };
+    this.props.addMovie(movie);
   };
 
   onUpdateMovie = () => {
@@ -96,15 +88,12 @@ class AddMovie extends Component {
     const { classes, className } = this.props;
     const {
       title,
-      image,
-      genre,
-      language,
-      duration,
-      description,
       director,
-      cast,
-      releaseDate,
-      endDate
+      avatar,
+      description,
+      length,
+      released,
+      price
     } = this.state;
 
     const rootClassName = classNames(classes.root, className);
@@ -135,24 +124,18 @@ class AddMovie extends Component {
             />
           </div>
           <div className={classes.field}>
-            <Select
-              multiple
-              displayEmpty
+            <TextField
               className={classes.textField}
-              label="Genre"
+              helperText="Please specify director"
+              label="Director"
               margin="dense"
               required
-              value={genre}
+              value={director}
               variant="outlined"
               onChange={event =>
-                this.handleFieldChange('genre', event.target.value)
-              }>
-              {genreData.map((genreItem, index) => (
-                <MenuItem key={genreItem + '-' + index} value={genreItem}>
-                  {genreItem}
-                </MenuItem>
-              ))}
-            </Select>
+                this.handleFieldChange('director', event.target.value)
+              }
+            />
           </div>
           <div className={classes.field}>
             <TextField
@@ -171,98 +154,54 @@ class AddMovie extends Component {
           </div>
           <div className={classes.field}>
             <TextField
-              select
               className={classes.textField}
-              label="Language"
+              label="Released"
               margin="dense"
+              type="number"
               required
-              value={language}
+              value={released}
               variant="outlined"
               onChange={event =>
-                this.handleFieldChange('language', event.target.value)
+                this.handleFieldChange('released', event.target.value)
               }>
-              {languageData.map((langItem, index) => (
-                <MenuItem key={langItem + '-' + index} value={langItem}>
-                  {langItem}
-                </MenuItem>
-              ))}
             </TextField>
 
             <TextField
               className={classes.textField}
-              label="Duration"
+              label="Length"
               margin="dense"
               type="number"
-              value={duration}
+              required
+              value={length}
               variant="outlined"
               onChange={event =>
-                this.handleFieldChange('duration', event.target.value)
+                this.handleFieldChange('length', event.target.value)
               }
             />
           </div>
           <div className={classes.field}>
             <TextField
               className={classes.textField}
-              label="Director"
+              label="Price"
               margin="dense"
+              type="number"
               required
-              value={director}
+              value={price}
               variant="outlined"
               onChange={event =>
-                this.handleFieldChange('director', event.target.value)
+                this.handleFieldChange('price', event.target.value)
               }
             />
             <TextField
               className={classes.textField}
-              label="Cast"
+              label="Avatar"
               margin="dense"
               required
-              value={cast}
+              value={avatar}
               variant="outlined"
               onChange={event =>
-                this.handleFieldChange('cast', event.target.value)
+                this.handleFieldChange('avatar', event.target.value)
               }
-            />
-          </div>
-          <div className={classes.field}>
-            <MuiPickersUtilsProvider utils={MomentUtils}>
-              <KeyboardDatePicker
-                className={classes.textField}
-                inputVariant="outlined"
-                margin="normal"
-                id="release-date"
-                label="Release Date"
-                value={releaseDate}
-                onChange={date =>
-                  this.handleFieldChange('releaseDate', date._d)
-                }
-                KeyboardButtonProps={{
-                  'aria-label': 'change date'
-                }}
-              />
-
-              <KeyboardDatePicker
-                className={classes.textField}
-                inputVariant="outlined"
-                margin="normal"
-                id="end-date"
-                label="End Date"
-                value={endDate}
-                onChange={date => this.handleFieldChange('endDate', date._d)}
-                KeyboardButtonProps={{
-                  'aria-label': 'change date'
-                }}
-              />
-            </MuiPickersUtilsProvider>
-          </div>
-          <div className={classes.field}>
-            <FileUpload
-              className={classes.upload}
-              file={image}
-              onUpload={event => {
-                const file = event.target.files[0];
-                this.handleFieldChange('image', file);
-              }}
             />
           </div>
         </form>
