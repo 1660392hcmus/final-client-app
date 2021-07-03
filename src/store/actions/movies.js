@@ -84,22 +84,30 @@ export const getMovieSuggestion = id => async dispatch => {
 };
 
 export const addMovie = (newMovie) => async dispatch => {
-console.log("🚀 ~ file: movies.js ~ line 87 ~ newMovie", newMovie)
   try {
     const token = localStorage.getItem('token');
-    let formData = new FormData();
-    formData.append('title', newMovie.title);
-    formData.append('director', newMovie.director);
-    formData.append('description', newMovie.description);
-    formData.append('length', parseInt(newMovie.length));
-    formData.append('released', parseInt(newMovie.released));
-    formData.append('avatar', newMovie.avatar);
-    formData.append('price',parseInt(newMovie.price));
+    // let formData = new FormData();
+    // formData.append('title', newMovie.title);
+    // formData.append('director', newMovie.director);
+    // formData.append('description', newMovie.description);
+    // formData.append('length', parseInt(newMovie.length));
+    // formData.append('released', parseInt(newMovie.released));
+    // formData.append('avatar', newMovie.avatar);
+    // formData.append('price',parseInt(newMovie.price));
     const url = 'http://3.21.232.6:8080/admin/add/movie';
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-auth': token, },
-      body: formData
+      body: JSON.stringify({
+        director: newMovie.director,
+        data: newMovie.data || [{date: null, time: [null]}],
+        title: newMovie.title,
+        length: parseInt(newMovie.length),
+        released: parseInt(newMovie.released),
+        discription: newMovie.description,
+        price: parseInt(newMovie.price),
+        imageUrl: newMovie.avatar
+      })
     });
     const movie = await response.json();
     if (response) {

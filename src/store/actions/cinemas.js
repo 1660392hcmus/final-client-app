@@ -62,10 +62,21 @@ export const createCinemas = (image, newCinema) => async dispatch => {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "x-auth": localStorage.getItem("token")
       },
-      body: JSON.stringify(newCinema)
+      body: JSON.stringify({
+        director: newCinema.director,
+        data: newCinema.data || [{date: null, time: [null]}],
+        title: newCinema.title,
+        length: parseInt(newCinema.length),
+        released: parseInt(newCinema.released),
+        discription: newCinema.description,
+        price: parseInt(newCinema.price),
+        imageUrl: newCinema.avatar
+      })
     });
+    console.log("🚀 ~ file: cinemas.js ~ line 79 ~ response", response)
     const cinema = await response.json();
     if (response.ok) {
       dispatch(setAlert('Cinema Created', 'success', 5000));
