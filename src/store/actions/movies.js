@@ -144,14 +144,16 @@ export const updateMovie = (movieId, movie, image) => async dispatch => {
 };
 
 export const removeMovie = movieId => async dispatch => {
+  const token = localStorage.getItem('token');
   try {
     const token = localStorage.getItem('token');
-    const url = '/movies/' + movieId;
+    const url = 'http://3.21.232.6:8080/admin/delete/movie/' + movieId;
     const response = await fetch(url, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        // Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'x-auth': token,
       }
     });
     if (response.ok) {

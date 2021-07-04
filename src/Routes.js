@@ -19,6 +19,8 @@ import { AdminLayout, PublicLayout } from './layouts';
 // // Admin
 const DashboardPage = lazy(() => import('./pages/Admin/Dashboard'));
 const MovieList = lazy(() => import('./pages/Admin/MovieList'));
+const CinemaList = lazy(() => import('./pages/Admin/CinemaList'));
+const ReservationList = lazy(() => import('./pages/Admin/ReservationList'));
 
 // // Register - Login
 const Register = lazy(() => import('./pages/Public/Register'));
@@ -99,6 +101,20 @@ const Routes = () => {
             path="/admin/movies"
             layout={AdminLayout}
             component={MovieList}
+          />
+
+          <ProtectedRoute
+            exact
+            path="/admin/cinemas"
+            layout={AdminLayout}
+            component={CinemaList}
+          />
+
+          <ProtectedRoute
+            exact
+            path="/admin/reservations"
+            layout={AdminLayout}
+            component={ReservationList}
           />
           
           {/* <Route exact path="/movie/order/:id" component={Order} /> */}

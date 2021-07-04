@@ -1,10 +1,15 @@
 import { GET_RESERVATIONS, GET_RESERVATION_SUGGESTED_SEATS } from '../types';
 import { setAlert } from './alert';
 
-export const getReservations = () => async dispatch => {
+export const getReservations = (role) => async dispatch => {
   try {
     const token = localStorage.getItem('token');
-    const url = 'http://3.21.232.6:8080/admin/get/all/order';
+    let url;
+    if(role === 'admin'){
+      url = 'http://3.21.232.6:8080/admin/get/all/order';
+    } else {
+      url = 'http://3.21.232.6:8080/user/get/order';
+    }
     const response = await fetch(url, {
       method: 'GET',
       headers: {

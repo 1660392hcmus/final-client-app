@@ -11,7 +11,9 @@ import {
   TablePagination
 } from '@material-ui/core';
 
-import { Portlet, PortletContent } from '../../../../../components';
+import Portlet from '../../../../../components/Portlet';
+import PortletContent from '../../../../../components/PortletContent';
+
 import styles from './styles';
 
 class ReservationsTable extends Component {

@@ -5,9 +5,9 @@ import { getCinemas } from '../../../store/actions';
 import { withStyles } from '@material-ui/core';
 import { CircularProgress, Grid } from '@material-ui/core';
 import { AddCinema, CinemaToolbar } from './components';
-import { ResponsiveDialog } from '../../../components';
+import ResponsiveDialog from '../../../../src/components/ResponsiveDialog';
 import styles from './styles';
-import CinemaCard from '../../Public/components/CinemaCard/CinemaCard';
+import CinemaCard from '../../../pages/components/CinemaCard/CinemaCard';
 import { match } from '../../../utils';
 
 class CinemaList extends Component {

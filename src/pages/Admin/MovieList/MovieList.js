@@ -20,6 +20,7 @@ class MovieList extends Component {
   renderMovies() {
     const { classes } = this.props;
     const movies = match(this.state.search, this.props.movies, 'title');
+    console.log("🚀 ~ file: MovieList.js ~ line 23 ~ MovieList ~ renderMovies ~ movies", movies)
 
     if (!movies.length) {
       return (
@@ -33,7 +34,7 @@ class MovieList extends Component {
         {movies.map(movie => (
           <Grid
             item
-            key={movie._id}
+            key={movie.id_movie}
             lg={4}
             md={6}
             xs={12}

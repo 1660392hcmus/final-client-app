@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import { SearchInput, ResponsiveDialog } from '../../../../../components';
+import SearchInput from '../../../../../components/SearchInput';
+import ResponsiveDialog from '../../../../../components/ResponsiveDialog';
 import styles from './styles';
 import AddCinema from '../AddCinema/AddCinema';
 

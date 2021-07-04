@@ -40,7 +40,8 @@ class ReservationList extends Component {
     const { mode, search } = this.state;
     const { classes, reservations, movies, cinemas } = this.props;
 
-    const filteredReservations = match(search, reservations, 'phone');
+    // const filteredReservations = match(search, reservations, 'phone');
+    const filteredReservations = reservations;
 
     return (
       <div className={classes.root}>

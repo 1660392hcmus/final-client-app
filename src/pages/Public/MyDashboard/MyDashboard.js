@@ -87,7 +87,7 @@ const mapStateToProps = ({
 }) => ({
   user: authState.user,
   movies: movieState.movies,
-  reservations: reservationState.reservations.order || [],
+  reservations: reservationState.reservations || [],
   cinemas: cinemaState.cinemas
 });
 

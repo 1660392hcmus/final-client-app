@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core';
 
-import { SearchInput, DisplayMode } from '../../../../../components';
+import SearchInput from '../../../../../components/SearchInput';
+import DisplayMode from '../../../../../components/DisplayMode';
 import styles from './styles';
 
 class ReservationsToolbar extends Component {

@@ -12,7 +12,7 @@ import {
   updateCinemas,
   removeCinemas
 } from '../../../../../store/actions';
-import { FileUpload } from '../../../../../components';
+// import { FileUpload } from '../../../../../components';
 
 class AddCinema extends Component {
   state = {
@@ -173,7 +173,7 @@ class AddCinema extends Component {
               }
             />
           </div>
-          <div className={classes.field}>
+          {/* <div className={classes.field}>
             <FileUpload
               className={classes.textField}
               file={image}
@@ -182,7 +182,7 @@ class AddCinema extends Component {
                 this.handleFieldChange('image', file);
               }}
             />
-          </div>
+          </div> */}
 
           <div className={classes.field}>
             <TextField

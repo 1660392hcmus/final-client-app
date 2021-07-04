@@ -28,7 +28,7 @@ class Dashboard extends Component {
     this.props.getUsers();
     this.props.getCinemas();
     this.props.getMovies();
-    this.props.getReservations();
+    this.props.getReservations(this.props.role);
   }
 
   getBestMovies = (reservations, movies, total = 5) => {
@@ -93,12 +93,14 @@ const mapStateToProps = ({
   userState,
   cinemaState,
   movieState,
-  reservationState
+  reservationState,
+  authState,
 }) => ({
   users: userState.users,
   cinemas: cinemaState.cinemas,
   movies: movieState.movies,
-  reservations: reservationState.reservations
+  reservations: reservationState.reservations,
+  role: authState.role,
 });
 const mapDispatchToProps = {
   getUsers,
