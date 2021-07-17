@@ -21,13 +21,13 @@ export const uploadImage = (id, image) => async dispatch => {
     });
     const responseData = await response.json();
     if (response.ok) {
-      dispatch(setAlert('Image Uploaded', 'success', 5000));
+      dispatch(setAlert('Image Uploaded', 'success', 2000));
     }
     if (responseData.error) {
-      dispatch(setAlert(responseData.error.message, 'error', 5000));
+      dispatch(setAlert(responseData.error.message, 'error', 2000));
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -48,15 +48,15 @@ export const login = (email, password) => async dispatch => {
       const { name } = responseData;
       name && setUser(name);
       dispatch({ type: LOGIN_SUCCESS, payload: responseData });
-      dispatch(setAlert(`Welcome ${name}`, 'success', 5000));
+      dispatch(setAlert(`Welcome ${name}`, 'success', 2000));
     }
     if (responseData.error) {
       dispatch({ type: LOGIN_FAIL });
-      dispatch(setAlert(responseData.message, 'error', 5000));
+      dispatch(setAlert(responseData.message, 'error', 2000));
     }
   } catch (error) {
     dispatch({ type: LOGIN_FAIL });
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -76,15 +76,15 @@ export const facebookLogin = e => async dispatch => {
       const { user } = responseData;
       user && setUser(user);
       dispatch({ type: LOGIN_SUCCESS, payload: responseData });
-      dispatch(setAlert(`Welcome ${user.name}`, 'success', 5000));
+      dispatch(setAlert(`Welcome ${user.name}`, 'success', 2000));
     }
     if (responseData.error) {
       dispatch({ type: LOGIN_FAIL });
-      dispatch(setAlert(responseData.error.message, 'error', 5000));
+      dispatch(setAlert(responseData.error.message, 'error', 2000));
     }
   } catch (error) {
     dispatch({ type: LOGIN_FAIL });
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -104,15 +104,15 @@ export const googleLogin = ({ profileObj }) => async dispatch => {
       const { user } = responseData;
       user && setUser(user);
       dispatch({ type: LOGIN_SUCCESS, payload: responseData });
-      dispatch(setAlert(`Welcome ${user.name}`, 'success', 5000));
+      dispatch(setAlert(`Welcome ${user.name}`, 'success', 2000));
     }
     if (responseData.error) {
       dispatch({ type: LOGIN_FAIL });
-      dispatch(setAlert(responseData.error.message, 'error', 5000));
+      dispatch(setAlert(responseData.error.message, 'error', 2000));
     }
   } catch (error) {
     dispatch({ type: LOGIN_FAIL });
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -131,21 +131,20 @@ export const register = ({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
-    console.log("🚀 ~ file: auth.js ~ line 134 ~ response", response)
     const responseData = await response.json();
     if (response.ok) {
       const { user } = responseData;
       user && setUser(user);
       dispatch({ type: REGISTER_SUCCESS, payload: responseData });
-      dispatch(setAlert('Register Success', 'success', 5000));
+      dispatch(setAlert('Register Success', 'success', 2000));
     }
     if (responseData._message) {
       dispatch({ type: REGISTER_FAIL });
-      dispatch(setAlert(responseData.message, 'error', 5000));
+      dispatch(setAlert(responseData.message, 'error', 2000));
     }
   } catch (error) {
     dispatch({ type: REGISTER_FAIL });
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -185,15 +184,14 @@ export const logout = () => async dispatch => {
     // const responseData = await response.json();
 
     if (response.ok) {
-      console.log("🚀 ~ file: auth.js ~ line 189 ~ response.ok", response.ok)
       removeUser();
       dispatch({ type: LOGOUT });
-      dispatch(setAlert('LOGOUT Success', 'success', 5000));
+      dispatch(setAlert('LOGOUT Success', 'success', 2000));
     }
     if (response.error) {
-      dispatch(setAlert(response.error.message, 'error', 5000));
+      dispatch(setAlert(response.error.message, 'error', 2000));
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };

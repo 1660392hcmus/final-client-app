@@ -385,7 +385,8 @@ const mapStateToProps = (
   },
   ownProps
 ) => ({
-  isAuth: authState.isAuthenticated,
+  // isAuth: authState.isAuthenticated,
+  isAuth: window.localStorage.token ? true : false,
   token: authState.token,
   user: authState.user,
   movie: movieState.selectedMovie,

@@ -28,7 +28,7 @@ class Dashboard extends Component {
     this.props.getUsers();
     this.props.getCinemas();
     this.props.getMovies();
-    this.props.getReservations(this.props.role);
+    this.props.getReservations(window.localStorage.getItem('role'));
   }
 
   getBestMovies = (reservations, movies, total = 5) => {

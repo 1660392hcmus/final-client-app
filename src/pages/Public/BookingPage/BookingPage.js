@@ -300,11 +300,11 @@ class BookingPage extends Component {
       });
       if (response.ok) {
         this.props.resetCheckout();
-        this.props.setAlert('invitations Send', 'success', 5000);
+        this.props.setAlert('invitations Send', 'success', 2000);
         return { status: 'success', message: 'invitations Send' };
       }
     } catch (error) {
-      this.props.setAlert(error.message, 'error', 5000);
+      this.props.setAlert(error.message, 'error', 2000);
       return {
         status: 'error',
         message: ' invitations have not send, try again.'
@@ -449,7 +449,8 @@ const mapStateToProps = (
   },
   ownProps
 ) => ({
-  isAuth: authState.isAuthenticated,
+  // isAuth: authState.isAuthenticated,
+  isAuth: window.localStorage.token ? true : false,
   token: authState.token,
   user: authState.user,
   movie: movieState.selectedMovie,

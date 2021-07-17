@@ -154,10 +154,12 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuth: state.authState.isAuthenticated,
+  // isAuth: state.authState.isAuthenticated,
   user: state.authState.user,
   authState: state.authState,
-  isAuthenticated: state.authState.isAuthenticated,
+  // isAuthenticated: state.authState.isAuthenticated,
+  isAuth: window.localStorage.token ? true : false,
+  isAuthenticated: window.localStorage.token ? true : false,
 });
 
 const mapDispatchToProps = {

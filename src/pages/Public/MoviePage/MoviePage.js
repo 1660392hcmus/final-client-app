@@ -7,15 +7,15 @@ import { getMovie, onSelectMovie } from '../../../store/actions';
 
 class MoviePage extends Component {
   componentDidMount() {
-    this.props.getMovie(this.props.match.params.id, this.props.token);
+    this.props.getMovie(this.props.match.params.id, this.props.token || window.localStorage.getItem('token'));
   }
-
   componentWillUnmount() {
     this.props.onSelectMovie(null);
   }
 
   render() {
     const { movie } = this.props;
+    console.log("🚀 ~ file: MoviePage.js ~ line 18 ~ MoviePage ~ render ~ movie", movie)
     return <>{movie && <MovieBanner movie={movie} fullDescription />}</>;
   }
 }

@@ -29,6 +29,7 @@ function MovieBanner(props) {
   const { movie, fullDescription } = props;
   const classes = useStyles(props);
   if (!movie) return null;
+  let token = window.localStorage.getItem('token');
 
   return (
     <div className={classes.movieHero}>
@@ -64,7 +65,7 @@ function MovieBanner(props) {
             className={classes.descriptionText}
             variant="body1"
             color="inherit">
-            {textTruncate(movie.discription, 450)}
+            {textTruncate(movie.description, 450)}
           </Typography>
           <Typography className={classes.director} variant="h4" color="inherit">
             By: {movie.director}

@@ -12,13 +12,13 @@ export const uploadCinemaImage = (id, image) => async dispatch => {
     });
     const responseData = await response.json();
     if (response.ok) {
-      dispatch(setAlert('Image Uploaded', 'success', 5000));
+      dispatch(setAlert('Image Uploaded', 'success', 2000));
     }
     if (responseData.error) {
-      dispatch(setAlert(responseData.error.message, 'error', 5000));
+      dispatch(setAlert(responseData.error.message, 'error', 2000));
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -34,7 +34,7 @@ export const getCinemas = () => async dispatch => {
       dispatch({ type: GET_CINEMAS, payload: cinemas });
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -50,7 +50,7 @@ export const getCinema = id => async dispatch => {
       dispatch({ type: GET_CINEMA, payload: cinema });
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -76,16 +76,15 @@ export const createCinemas = (image, newCinema) => async dispatch => {
         imageUrl: newCinema.avatar
       })
     });
-    console.log("🚀 ~ file: cinemas.js ~ line 79 ~ response", response)
     const cinema = await response.json();
     if (response.ok) {
-      dispatch(setAlert('Cinema Created', 'success', 5000));
+      dispatch(setAlert('Cinema Created', 'success', 2000));
       if (image) dispatch(uploadCinemaImage(cinema._id, image));
       dispatch(getCinemas());
       return { status: 'success', message: 'Cinema Created' };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Cinema have not been saved, try again.'
@@ -106,12 +105,12 @@ export const updateCinemas = (image, cinema, id) => async dispatch => {
       body: JSON.stringify(cinema)
     });
     if (response.ok) {
-      dispatch(setAlert('Cinema Updated', 'success', 5000));
+      dispatch(setAlert('Cinema Updated', 'success', 2000));
       if (image) dispatch(uploadCinemaImage(id, image));
       return { status: 'success', message: 'Cinema Updated' };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Cinema have not been updated, try again.'
@@ -131,11 +130,11 @@ export const removeCinemas = id => async dispatch => {
       }
     });
     if (response.ok) {
-      dispatch(setAlert('Cinema Deleted', 'success', 5000));
+      dispatch(setAlert('Cinema Deleted', 'success', 2000));
       return { status: 'success', message: 'Cinema Removed' };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Cinema have not been deleted, try again.'
@@ -155,6 +154,6 @@ export const getCinemasUserModeling = username => async dispatch => {
       dispatch({ type: GET_CINEMAS, payload: cinemas });
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };

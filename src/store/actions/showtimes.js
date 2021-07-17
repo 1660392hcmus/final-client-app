@@ -31,7 +31,7 @@ export const getShowtimes = () => async dispatch => {
       dispatch({ type: GET_SHOWTIMES, payload: showtimes });
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -48,11 +48,11 @@ export const addShowtime = showtime => async dispatch => {
       body: JSON.stringify(showtime)
     });
     if (response.ok) {
-      dispatch(setAlert('Showtime Created', 'success', 5000));
+      dispatch(setAlert('Showtime Created', 'success', 2000));
       return { status: 'success', message: 'Showtime Created' };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Cinema have not been saved, try again.'
@@ -73,11 +73,11 @@ export const updateShowtime = (showtime, id) => async dispatch => {
       body: JSON.stringify(showtime)
     });
     if (response.ok) {
-      dispatch(setAlert('Showtime Created', 'success', 5000));
+      dispatch(setAlert('Showtime Created', 'success', 2000));
       return { status: 'success', message: 'Showtime Created' };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Cinema have not been saved, try again.'
@@ -98,12 +98,12 @@ export const deleteShowtime = id => async dispatch => {
     });
     if (response.ok) {
       dispatch({ type: DELETE_SHOWTIME, payload: id });
-      dispatch(setAlert('Showtime Deleted', 'success', 5000));
+      dispatch(setAlert('Showtime Deleted', 'success', 2000));
       dispatch(getShowtimes());
       return { status: 'success', message: 'Showtime Removed' };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Showtime have not been deleted, try again.'

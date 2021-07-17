@@ -12,13 +12,13 @@ export const uploadMovieImage = (id, image) => async dispatch => {
     });
     const responseData = await response.json();
     if (response.ok) {
-      dispatch(setAlert('Image Uploaded', 'success', 5000));
+      dispatch(setAlert('Image Uploaded', 'success', 2000));
     }
     if (responseData.error) {
-      dispatch(setAlert(responseData.error.message, 'error', 5000));
+      dispatch(setAlert(responseData.error.message, 'error', 2000));
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -42,7 +42,7 @@ export const getMovies = () => async dispatch => {
     //   dispatch({ type: GET_MOVIES, payload: movies });
     // }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -59,11 +59,11 @@ export const getMovie = (id, token) => async dispatch => {
       headers: { 'Content-Type': 'application/json', 'x-auth': token, },
     });
     const movie = await response.json();
-    if (response) {
+    if (movie) {
       dispatch({ type: SELECT_MOVIE, payload: movie });
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -79,7 +79,7 @@ export const getMovieSuggestion = id => async dispatch => {
       dispatch({ type: GET_SUGGESTIONS, payload: movies });
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -111,12 +111,12 @@ export const addMovie = (newMovie) => async dispatch => {
     });
     const movie = await response.json();
     if (response) {
-      dispatch(setAlert('Movie have been saved!', 'success', 5000));
+      dispatch(setAlert('Movie have been saved!', 'success', 2000));
       // if (image) dispatch(uploadMovieImage(movie._id, image));
       dispatch(getMovies());
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -134,12 +134,12 @@ export const updateMovie = (movieId, movie, image) => async dispatch => {
     });
     if (response.ok) {
       dispatch(onSelectMovie(null));
-      dispatch(setAlert('Movie have been saved!', 'success', 5000));
+      dispatch(setAlert('Movie have been saved!', 'success', 2000));
       if (image) dispatch(uploadMovieImage(movieId, image));
       dispatch(getMovies());
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -159,9 +159,9 @@ export const removeMovie = movieId => async dispatch => {
     if (response.ok) {
       dispatch(getMovies());
       dispatch(onSelectMovie(null));
-      dispatch(setAlert('Movie have been Deleted!', 'success', 5000));
+      dispatch(setAlert('Movie have been Deleted!', 'success', 2000));
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };

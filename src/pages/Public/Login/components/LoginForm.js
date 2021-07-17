@@ -209,7 +209,7 @@ function LoginForm(props) {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.authState.isAuthenticated,
+  isAuthenticated: window.localStorage.token ? true : false,
   user: state.authState.user
 });
 export default connect(mapStateToProps, { login, facebookLogin, googleLogin })(

@@ -30,6 +30,8 @@ ProtectedRoute.defaultProps = {
   isAuthenticated: false
 };
 const mapStateToProps = state => ({
-  isAuthenticated: state.authState.isAuthenticated
+  // isAuthenticated: state.authState.isAuthenticated
+  isAuthenticated: window.localStorage.token ? true : false,
+
 });
 export default connect(mapStateToProps)(ProtectedRoute);

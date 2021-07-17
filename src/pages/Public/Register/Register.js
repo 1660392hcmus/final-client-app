@@ -193,7 +193,8 @@ Register.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.authState.isAuthenticated
+  // isAuthenticated: state.authState.isAuthenticated
+  isAuthenticated: window.localStorage.token ? true : false,
 });
 
 export default withStyles(styles)(

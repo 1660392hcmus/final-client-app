@@ -22,7 +22,7 @@ export const getReservations = (role) => async dispatch => {
       dispatch({ type: GET_RESERVATIONS, payload: reservations.order });
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -44,7 +44,7 @@ export const getSuggestedReservationSeats = username => async dispatch => {
       });
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
   }
 };
 
@@ -62,7 +62,7 @@ export const addReservation = reservation => async dispatch => {
     });
     if (response.ok) {
       const { reservation, QRCode } = await response.json();
-      dispatch(setAlert('Reservation Created', 'success', 5000));
+      dispatch(setAlert('Reservation Created', 'success', 2000));
       return {
         status: 'success',
         message: 'Reservation Created',
@@ -70,7 +70,7 @@ export const addReservation = reservation => async dispatch => {
       };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Reservation have not been created, try again.'
@@ -91,11 +91,11 @@ export const updateReservation = (reservation, id) => async dispatch => {
       body: JSON.stringify(reservation)
     });
     if (response.ok) {
-      dispatch(setAlert('Reservation Updated', 'success', 5000));
+      dispatch(setAlert('Reservation Updated', 'success', 2000));
       return { status: 'success', message: 'Reservation Updated' };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Reservation have not been updated, try again.'
@@ -115,11 +115,11 @@ export const removeReservation = id => async dispatch => {
       }
     });
     if (response.ok) {
-      dispatch(setAlert('Reservation Deleted', 'success', 5000));
+      dispatch(setAlert('Reservation Deleted', 'success', 2000));
       return { status: 'success', message: 'Reservation Removed' };
     }
   } catch (error) {
-    dispatch(setAlert(error.message, 'error', 5000));
+    dispatch(setAlert(error.message, 'error', 2000));
     return {
       status: 'error',
       message: ' Reservation have not been deleted, try again.'
