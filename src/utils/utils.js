@@ -5,11 +5,7 @@ export const textTruncate = (text, length, ending) => {
   if (ending == null) {
     ending = '...';
   }
-  if (text.toString().length > length) {
-    return text.substring(0, length - ending.length) + ending;
-  } else {
-    return text;
-  }
+  return text + ending;
 };
 
 export const match = (term, array, key) => {
