@@ -6,7 +6,7 @@ import MovieBanner from '../../../components/MovieBanner/MovieBanner';
 import { getMovie, onSelectMovie } from '../../../store/actions';
 
 class MoviePage extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.getMovie(this.props.match.params.id, this.props.token || window.localStorage.getItem('token'));
   }
   componentWillUnmount() {
