@@ -1,4 +1,4 @@
-import { GET_MOVIES, SELECT_MOVIE,GET_SUGGESTIONS } from '../types';
+import { GET_MOVIES, SELECT_MOVIE, GET_SUGGESTIONS } from '../types';
 
 const initialState = {
   movies: [],
@@ -43,18 +43,19 @@ const getMovies = (state, payload) => {
 const onSelectMovie = (state, payload) => ({
   ...state,
   selectedMovie: payload ? {
-    _id : payload.movie.id_movie || payload.id_movie,
-    title : payload.movie.title || payload.title,
-    image : payload.movie.image || payload.image,
+    _id : payload.id_movie,
+    title : payload.title,
+    image : payload.image,
     genre :"fantasy",
     language :"english",
-    duration : payload.movie.length || payload.length,
-    description : payload.movie.discription || payload.discription,
-    director : payload.movie.director ||  payload.director,
+    duration : payload.length,
+    description : payload.discription,
+    director : payload.director,
     cast : "asher angel, mark strong, zachary levi",
     __v :0,
     endDate :"2022-03-27T16:38:00.000Z",
     releaseDate :"2021-07-31T16:38:00.000Z",
+    price: payload.price,
   } : null,
 });
 

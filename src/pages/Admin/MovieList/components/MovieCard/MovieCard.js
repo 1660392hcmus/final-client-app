@@ -71,13 +71,13 @@ function MovieCard(props) {
           {movie.title}
         </Typography>
         <Typography className={classes.description} variant="body1">
-          {movie.description}
+          {movie.discription}
         </Typography>
       </div>
       <div className={classes.stats}>
         <AccessTimeIcon className={classes.updateIcon} />
         <Typography className={classes.updateText} variant="body2">
-          {movie.duration} minutes
+          {movie.length} minutes
         </Typography>
       </div>
     </Paper>

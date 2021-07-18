@@ -1,7 +1,7 @@
 import { GET_RESERVATIONS, GET_RESERVATION_SUGGESTED_SEATS } from '../types';
 import { setAlert } from './alert';
 
-export const getReservations = (role) => async dispatch => {
+export const getReservations = (role = localStorage.getItem('role')) => async dispatch => {
   try {
     const token = localStorage.getItem('token');
     let url;

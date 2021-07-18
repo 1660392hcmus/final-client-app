@@ -34,8 +34,8 @@ class AddMovie extends Component {
         title,
         director,
         description,
-        length,
-        released,
+        duration,
+        releaseDate,
         avatar,
         price,
       } = this.props.edit;
@@ -43,8 +43,8 @@ class AddMovie extends Component {
         title,
         director,
         description,
-        length,
-        released,
+        length: duration,
+        released: releaseDate.slice(0,4),
         avatar,
         price,
       });
@@ -77,9 +77,9 @@ class AddMovie extends Component {
   };
 
   onUpdateMovie = () => {
-    const { image, genre, ...rest } = this.state;
-    const movie = { ...rest, genre: genre.join(',') };
-    this.props.updateMovie(this.props.edit._id, movie, image);
+    const { ...rest } = this.state;
+    // const movie = { ...rest };
+    this.props.updateMovie(this.props.edit._id, rest);
   };
 
   onRemoveMovie = () => this.props.removeMovie(this.props.edit._id);

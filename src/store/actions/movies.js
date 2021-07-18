@@ -60,7 +60,7 @@ export const getMovie = (id, token) => async dispatch => {
     });
     const movie = await response.json();
     if (movie) {
-      dispatch({ type: SELECT_MOVIE, payload: movie });
+      dispatch({ type: SELECT_MOVIE, payload: movie.movie });
     }
   } catch (error) {
     dispatch(setAlert(error.message, 'error', 2000));
@@ -123,14 +123,15 @@ export const addMovie = (newMovie) => async dispatch => {
 export const updateMovie = (movieId, movie, image) => async dispatch => {
   try {
     const token = localStorage.getItem('token');
-    const url = '/movies/' + movieId;
+    const url = 'http://3.21.232.6:8080/admin/edit/movie/' + movieId;
     const response = await fetch(url, {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "x-auth": token,
       },
-      body: JSON.stringify(movie)
+      body: JSON.stringify({...movie, imageUrl: movie.avatar})
     });
     if (response.ok) {
       dispatch(onSelectMovie(null));

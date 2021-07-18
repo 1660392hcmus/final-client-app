@@ -84,7 +84,7 @@ class ReservationsTable extends Component {
                     hover
                     key={reservation._id}>
                     <TableCell className={classes.tableCell}>
-                      {reservation.username}
+                      {reservation.name}
                     </TableCell>
                     <TableCell className={classes.tableCell}>
                       {reservation.phone}
@@ -94,13 +94,14 @@ class ReservationsTable extends Component {
                     </TableCell>
 
                     <TableCell className={classes.tableCell}>
-                      {this.onFindAttr(reservation.movieId, movies, 'title')}
+                      {reservation.title}
+                      {/* {this.onFindAttr(reservation.title, movies, 'title')} */}
                     </TableCell>
                     <TableCell className={classes.tableCell}>
                       {this.onFindAttr(reservation.cinemaId, cinemas, 'name')}
                     </TableCell>
                     <TableCell className={classes.tableCell}>
-                      {reservation.ticketPrice}
+                      {reservation.price}
                     </TableCell>
                     <TableCell className={classes.tableCell}>
                       {reservation.total}
